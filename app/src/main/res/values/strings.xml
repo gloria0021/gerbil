@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Gerbil</string>
+
+    <!-- 共通 -->
+    <string name="common_retry">再試行</string>
+
+    <!-- 通知・エラー（%1$s は error_target_*） -->
+    <string name="error_network">%1$sを取得できませんでした。通信状態を確認してください</string>
+    <string name="error_rate_limited">サーバが混雑しています。しばらくしてから再試行してください</string>
+    <string name="error_forbidden">%1$sへのアクセスが拒否されました</string>
+    <string name="error_server">サーバでエラーが起きました（%1$s）</string>
+    <string name="error_parse">%1$sの形式を読み取れませんでした</string>
+    <string name="error_target_board_list">板一覧</string>
+    <string name="error_target_thread_list">スレ一覧</string>
+    <string name="error_target_thread">スレ</string>
+    <string name="error_target_post">書き込み</string>
+
+    <!-- 文字サイズ -->
+    <string name="font_size">文字サイズ</string>
+    <string name="font_size_value">文字サイズ（%1$d）</string>
+
+    <!-- 画像 -->
+    <string name="image_loading">読み込み中…</string>
+    <string name="image_downloading">画像をダウンロード中</string>
+    <string name="image_receiving">%1$s 受信中</string>
+
+    <!-- 高速スクロールバー（読み上げ） -->
+    <string name="thread_scroller_cd">レスの位置</string>
+    <string name="thread_scroller_state">レス %1$d / %2$d</string>
+    <string name="thread_scroller_move">レスへ移動</string>
+    <string name="thread_list_scroller_move">スレへ移動</string>
+    <string name="thread_list_scroller_state">スレ %1$d / %2$d</string>
+    <string name="thread_list_scroller_cd">スレの位置</string>
+    <string name="thread_loading">スレを読み込み中</string>
+    <!-- 共通の操作 -->
+    <string name="common_delete">削除</string>
+    <string name="common_more_cd">その他の操作</string>
+    <string name="common_selected_cd">選択中</string>
+    <string name="common_open_menu">操作メニューを開く</string>
+    <string name="common_collapse">閉じる</string>
+    <string name="common_expand">開く</string>
+    <string name="common_close">閉じる</string>
+
+    <!-- スレ選択 -->
+    <string name="thread_list_tab_browse">閲覧中</string>
+    <string name="thread_list_tab_all">全体</string>
+    <string name="thread_list_empty_browse">まだスレを開いていません。開いたスレと、長押しで「次スレを追尾」にしたスレがここに並びます</string>
+    <string name="thread_list_empty">スレがありません。下に引いて更新してください</string>
+    <string name="thread_meta_archived">DAT落ち</string>
+    <string name="thread_meta_momentum">勢い %1$dレス/日</string>
+    <string name="thread_meta_momentum_unknown">勢い不明</string>
+    <string name="thread_star">次スレを追尾</string>
+    <string name="thread_unstar">次スレの追尾をやめる</string>
+    <string name="sort_rank">通常</string>
+    <string name="sort_momentum">人気</string>
+    <string name="sort_newest">新規</string>
+    <string name="title_search_placeholder">この板のスレタイを検索</string>
+    <string name="title_search_clear_cd">検索語を消す</string>
+    <string name="title_search_no_match">「%1$s」に一致するスレはありません</string>
+
+    <!-- 板一覧 -->
+    <string name="board_list_title">板一覧</string>
+    <string name="board_list_back_cd">板一覧へ戻る</string>
+    <string name="board_list_starred">スター付き</string>
+    <string name="board_list_empty">板がありません。「設定」→「掲示板」からURLを登録してください。</string>
+    <string name="board_list_no_match">「%1$s」を含む板はありません</string>
+    <string name="board_category_other">その他</string>
+    <string name="board_star">スターを付ける</string>
+    <string name="board_unstar">スターを外す</string>
+    <!-- レス表示 -->
+    <string name="common_back_cd">戻る</string>
+    <string name="thread_placeholder">スレを選ぶとここに表示されます</string>
+    <string name="thread_archived_notice">DAT落ちしたスレです。保存されたログを表示しています</string>
+    <string name="thread_not_found">スレが見つかりませんでした（削除された可能性があります）</string>
+    <string name="thread_url_open_failed">URL を開けませんでした</string>
+    <string name="thread_open_url_title">ブラウザで開く</string>
+    <string name="thread_post_not_found">レス %1$d が見つかりません</string>
+    <string name="thread_new_posts_from">ここから新着</string>
+    <string name="thread_no_new_posts">新着なし</string>
+    <string name="thread_bar_new">新着</string>
+    <string name="thread_bar_reply">書き込み</string>
+    <string name="post_detail_show">詳細を表示</string>
+    <string name="post_detail_hide">詳細を閉じる</string>
+    <string name="post_reply_to">&gt;&gt;%1$d にレス</string>
+    <plurals name="post_replies_count">
+        <item quantity="other">返信 %1$d</item>
+    </plurals>
+    <plurals name="post_replies_cd">
+        <item quantity="other">返信 %1$d 件を表示</item>
+    </plurals>
+    <plurals name="post_id_count">
+        <item quantity="other">レス %1$d</item>
+    </plurals>
+    <plurals name="post_id_cd">
+        <item quantity="other">この ID の書き込み %1$d 件を表示</item>
+    </plurals>
+    <string name="post_video_cd">動画プレビュー</string>
+    <string name="post_video_gore_cd">グロ注意の動画（タップで表示）</string>
+    <string name="post_image_gore_cd">グロ注意の画像（タップで表示）</string>
+    <string name="post_video_label">動画</string>
+    <string name="post_media_failed">読込失敗</string>
+    <string name="post_gore_tap_to_show">グロ注意\nタップで表示</string>
+    <string name="image_preview_cd">画像プレビュー</string>
+    <string name="image_open_in_browser">ブラウザで開く</string>
+    <string name="sheet_replies_title">&gt;&gt;%1$d への返信 (%2$d)</string>
+    <string name="sheet_id_title">ID:%1$s の投稿 (%2$d)</string>
+    <string name="sheet_back_cd">前のシートへ戻る</string>
+
+    <!-- スレ内検索・絞り込み -->
+    <string name="thread_bar_search">検索</string>
+    <string name="thread_bar_filter">絞り込み</string>
+    <string name="thread_search_placeholder">スレ内を検索</string>
+    <string name="thread_search_count">%1$d / %2$d</string>
+    <string name="thread_search_no_match">0件</string>
+    <string name="thread_search_prev_cd">前の一致へ</string>
+    <string name="thread_search_next_cd">次の一致へ</string>
+    <string name="thread_search_close_cd">検索を閉じる</string>
+    <string name="thread_filter_links">リンク付き</string>
+    <string name="thread_filter_top_replies">返信が多い</string>
+    <string name="thread_filter_top_posters">書き込みが多い</string>
+    <string name="thread_filter_clear_cd">絞り込みを解除</string>
+    <string name="thread_filter_empty">該当するレスはありません</string>
+
+    <!-- 書き込み -->
+    <string name="reply_title">書き込み</string>
+    <string name="reply_confirm_title">書き込み確認</string>
+    <string name="reply_submit">書き込む</string>
+    <string name="reply_back_to_edit">戻って編集</string>
+    <string name="reply_body_placeholder">レスを入力…</string>
+    <string name="reply_attached_image_cd">添付画像</string>
+    <string name="reply_sage" translatable="false">sage</string>
+    <string name="reply_name_mail">名前・メール</string>
+    <string name="reply_name_value">名前: %1$s</string>
+    <string name="reply_name_label">名前（省略可）</string>
+    <string name="reply_mail_label">メール（空欄または sage）</string>
+    <string name="reply_imgur_notice">・imgurにログインせずに画像アップロードすると削除ができません\n・imgurにログインして使う場合はimgur側のアカウント管理から削除可能です。\n・画像をアップロードしたら「Copy Link」を押すと書き込み画面に自動反映されます</string>
+    <string name="reply_image_cd">画像を貼る</string>
+    <string name="reply_open_imgur">Imgur を開く</string>
+    <string name="reply_posted">書き込みました</string>
+    <string name="reply_failed">書き込みに失敗しました</string>
+    <string name="reply_confirm_required">書き込み確認が必要です</string>
+    <string name="reply_board_not_found">板情報が見つかりません</string>
+    <!-- 設定 -->
+    <string name="common_apply">適用</string>
+    <string name="common_cancel">キャンセル</string>
+    <string name="settings_title">設定</string>
+    <string name="settings_section_display">表示</string>
+    <string name="settings_section_features">機能</string>
+    <string name="settings_section_about">情報</string>
+    <string name="settings_appearance">外観</string>
+    <string name="settings_color_theme">テーマ</string>
+    <string name="settings_custom_color">カスタム色</string>
+    <string name="settings_font">フォント</string>
+    <string name="settings_post_style">レス表示</string>
+    <string name="settings_haze_mode">透過効果</string>
+    <string name="settings_blur_strength">ぼかしの強さ</string>
+    <string name="settings_blur_strength_desc">0: ぼかさない · 10: 強くぼかす</string>
+    <string name="settings_glass_refraction">ガラスの屈折</string>
+    <string name="settings_glass_refraction_desc">0: 屈折なし · 10: 強く屈折</string>
+    <string name="settings_link_open">URLの開き方</string>
+    <string name="link_open_in_app">アプリ内ブラウザ</string>
+    <string name="link_open_browser">ブラウザで開く</string>
+    <string name="settings_version">バージョン</string>
+    <string name="settings_mute_conditions">ミュート条件を編集</string>
+    <string name="settings_mute_conditions_hint">当てはまるレスを、端末の AI がぼかします。1行に1つ書きます。口が悪くても中身のあるレスは残します</string>
+    <string name="settings_mute_conditions_reset">初期値に戻す</string>
+    <string name="settings_licenses">オープンソースライセンス</string>
+    <string name="settings_licenses_desc">このアプリが使っているライブラリ・アイコン・フォントのライセンス</string>
+    <string name="settings_feedback">フィードバックを送信</string>
+    <string name="settings_feedback_desc">不具合や要望をフォームで送ります。アプリの版・機種・Android の版・表示の設定を添えます（閲覧したスレは送りません）</string>
+    <string name="settings_color_code">カラーコード（RRGGBB）</string>
+    <string name="settings_color_red">赤</string>
+    <string name="settings_color_green">緑</string>
+    <string name="settings_color_blue">青</string>
+    <string name="settings_color_channel">%1$s %2$d</string>
+    <string name="theme_dynamic">ダイナミック（壁紙の色）</string>
+    <string name="theme_canyon" translatable="false">Canyon</string>
+    <string name="theme_fog" translatable="false">Fog</string>
+    <string name="theme_olive" translatable="false">Olive</string>
+    <string name="theme_obsidian" translatable="false">Obsidian</string>
+    <string name="theme_custom">カスタム</string>
+    <string name="post_style_modern">モダン</string>
+    <string name="post_style_simple">シンプル</string>
+    <string name="font_system">システム</string>
+    <string name="font_line_seed_jp" translatable="false">LINE SEED JP</string>
+    <string name="theme_mode_system">システム</string>
+    <string name="theme_mode_light">ライト</string>
+    <string name="theme_mode_dark">ダーク</string>
+    <string name="haze_blur">ぼかし</string>
+    <string name="haze_glass">ガラス</string>
+    <string name="summary_title">スレを要約</string>
+    <string name="summary_model_title">AIモデルの準備</string>
+    <string name="summary_checking">AIを準備中…</string>
+    <string name="summary_download_notice">AIモデルの取得に通信と端末の空き容量が必要です。モデルはシステムが管理し、アプリの削除後も残る場合があります。要約は端末内で処理され、本文はクラウドへ送信されません。</string>
+    <string name="summary_order_oldest_cd">古い順に表示中。押すと新しい順にする</string>
+    <string name="summary_order_newest_cd">新しい順に表示中。押すと古い順にする</string>
+    <string name="summary_download">モデルを取得</string>
+    <string name="summary_progress">%1$d〜%2$dレスを要約中…</string>
+    <string name="summary_merging">要約をまとめています…</string>
+    <string name="summary_range">%1$d〜%2$dレス（%3$d件）</string>
+    <string name="summary_partial">一部のレスを要約：%1$d〜%2$d（%3$d件）</string>
+    <string name="summary_stale">新しいレスまたは変更があるため、この要約は最新ではありません。</string>
+    <string name="summary_caution">※ これはAIによる回答や。最後は自分でチェック</string>
+    <string name="summary_placeholder_notice">ローカルAIがスレの要約を作成します。データを外部に送りません。</string>
+    <string name="summary_start">要約</string>
+    <plurals name="summary_new_posts">
+        <item quantity="other">新規レスが%1$d件あります。要約を作り直しますか？</item>
+    </plurals>
+    <string name="summary_update">作り直す</string>
+    <string name="summary_stop">要約を停止</string>
+    <string name="summary_regenerate">再要約</string>
+    <string name="summary_empty">要約できるレスがありません。</string>
+    <string name="summary_too_large">%1$dレスが長すぎるため、要約できませんでした。</string>
+    <string name="summary_busy">端末の AI を今は利用できません。利用制限中の可能性があります。しばらくしてから再試行してください。</string>
+    <string name="summary_quota">AIの利用上限に達しました。しばらくしてから再試行してください。</string>
+    <string name="summary_failed">要約できませんでした。途中までの処理は完了していません。</string>
+    <string name="summary_download_timeout">モデルの取得がタイムアウトしました。通信状態を確認して再試行してください。</string>
+    <string name="summary_output_unavailable">この端末のAIモデルは要約に必要な出力長に対応していません。</string>
+    <string name="summary_unsupported">この端末ではAI要約を利用できません。</string>
+    <string name="summary_failed_progress">%1$d / %2$d件まで要約しました。全体の要約は未完了です。</string>
+    <string name="summary_model_status_checking">AIモデル: 確認中…</string>
+    <string name="summary_model_status_downloadable">AIモデル: 未取得</string>
+    <string name="summary_model_status_downloading">AIモデル: 取得中…</string>
+    <string name="summary_model_status_ready">AIモデル: 準備完了</string>
+    <string name="summary_model_status_ready_named">AIモデル: %1$s</string>
+    <string name="summary_model_status_unavailable">AIモデル: 非対応</string>
+    <string name="settings_section_ai">AI</string>
+    <string name="settings_auto_summary">スレを開いたら自動要約を生成</string>
+    <string name="settings_auto_summary_desc">スレを開くと、裏でローカルAIが要約を作り始めます。同じスレにいるあいだ続きます。</string>
+    <string name="settings_auto_mute">スレを開いたら自動でAIミュート</string>
+    <string name="settings_auto_mute_desc">スレを開くと、自動でAIミュートを有効にします。AIミュートが有効なときだけ使えます。</string>
+    <string name="settings_ai_manage">ローカルモデルの削除</string>
+    <string name="settings_ai_manage_desc"><![CDATA[AICoreのアプリ情報の「ストレージとキャッシュ」から「ストレージを削除」を選択するとモデルを削除できます。<b>モデルの削除→再ダウンロードはAIモデルの更新、レスポンス改善にも効果があります。</b>]]></string>
+    <string name="settings_ai_unavailable">この端末ではAICoreのアプリ情報を開けません。</string>
+    <string name="summary_interrupted">要約を中断しました。続きから再開できます。</string>
+    <string name="summary_background">アプリが前面にないため、要約を中断しました。</string>
+    <string name="summary_resume">続きから再開</string>
+    <!-- AI フィルター -->
+    <string name="ai_filter_title">AIミュート（実験中）</string>
+    <string name="ai_filter_junk">ゴミレス</string>
+    <string name="ai_filter_judging">判定中 %1$d / %2$d</string>
+    <string name="ai_filter_reload_cd">AIミュートを再判定</string>
+    <string name="ai_filter_applied">適用完了</string>
+    <string name="ai_filter_failed">ゴミレスの判定に失敗しました</string>
+    <string name="ai_filter_tap_to_show">ミュート中 · 長押しで一時解除</string>
+
+    <!-- スレへの質問 -->
+    <string name="question_title">スレに質問</string>
+    <string name="question_open">質問</string>
+    <string name="question_placeholder">スレについて質問する</string>
+    <string name="question_send">質問を送る</string>
+    <string name="question_stop">回答を止める</string>
+    <string name="question_notice"><![CDATA[スレッド内の情報をもとにローカルAIが質問に答えます。<b>要約データがあると精度が向上します。</b>データを外部に送りません。]]></string>
+    <string name="question_thinking">回答を考え中…</string>
+    <string name="question_error_model">AIモデルの準備ができていません。先に要約からモデルを準備してください。</string>
+    <string name="question_error_too_large">質問が長すぎて答えられません。</string>
+    <string name="question_error_busy">AIが混み合っています。少し待ってから試してください。</string>
+    <string name="question_error_quota">AIの使用量の上限に達しました。時間をおいて試してください。</string>
+    <string name="question_error_generic">回答できませんでした。</string>
+    <string name="summary_partial_range">%1$sのまとめ</string>
+    <string name="question_reset">質問をリセット</string>
+    <string name="summary_download_background_notice">AIモデルの準備が完了したら要約機能が利用できます</string>
+    <string name="ai_filter_unavailable">AIモデルが未ダウンロード</string>
+    <string name="summary_download_waiting">AICore（システムアプリ）がモデル（約2.7GB）をダウンロード中です。5〜15分程度かかります</string>
+    <string name="summary_download_close">閉じて読む</string>
+    <string name="summary_download_progress">モデルをダウンロード中… %1$d / %2$d MB（%3$d%%）</string>
+    <string name="summary_download_continue">アプリを閉じてもAICore（システムアプリ）がバックグラウンドでダウンロードを続けます。</string>
+    <string name="reply_imgur_title">画像アップロードについて</string>
+    <string name="reply_imgur_hint_cd">Imgur の画面の「Copy Link」ボタン</string>
+    <string name="settings_ai_mute">AIミュート（実験中）</string>
+    <string name="settings_ai_mute_desc">レス表示の絞り込みのメニューで、中身のないレスをローカルAIで判定してぼかせるようにします。判定はまだ不正確です。</string>
+    <string name="post_mine_cd">自分の書き込み</string>
+    <string name="settings_site_add">掲示板を追加</string>
+    <string name="settings_site_add_desc">bbsmenu・板のURL、あるいは見たいスレのURLを入力すると追加されます</string>
+    <string name="settings_site_url">URL</string>
+    <string name="settings_site_label">ラベル（任意）</string>
+    <string name="settings_site_register">登録</string>
+    <string name="settings_site_checking">確認しています…</string>
+    <string name="settings_site_error_invalid">URL の形が正しくありません</string>
+    <string name="settings_site_error_duplicate">すでに登録しています</string>
+    <string name="settings_site_error_fetch">取得できませんでした。URL と通信を確かめてください</string>
+    <string name="settings_site_error_empty">板が見つかりませんでした。bbsmenu の URL か確かめてください</string>
+    <string name="settings_site_rename">ラベルを変更</string>
+    <string name="settings_site_delete_title">「%1$s」を削除しますか？</string>
+    <string name="settings_site_delete_body">この掲示板の板を板一覧から消します。保存したスレは残ります。</string>
+    <string name="board_list_add_first">追加</string>
+    <string name="settings_site_url_example">例: https://menu.example.com/bbsmenu.json</string>
+    <string name="board_list_first_url_title">見たいスレのURLを入力</string>
+    <string name="board_list_first_url_example">https://…/test/read.cgi/…</string>
+    <string name="thread_delete_following">次スレを追尾中にしています。本当に削除しますか？</string>
+    <string name="settings_section_data">データ</string>
+    <string name="settings_clear_cache">キャッシュを削除</string>
+    <string name="settings_clear_cache_desc">スレ、画像、要約データを削除します</string>
+    <string name="settings_clear_cache_confirm">スレ、画像、要約データを削除します。閲覧中の一覧・追尾・読んだ位置は残り、次に見るときに取り直します。</string>
+    <string name="settings_site_error_unsupported">この掲示板の形式にはまだ対応していません</string>
+    <string name="settings_sites">掲示板管理</string>
+    <string name="settings_site_delete">この掲示板を削除</string>
+    <string name="board_list_sites">掲示板</string>
+    <string name="board_list_paste_cd">クリップボードから貼り付け</string>
+    <string name="board_list_clear_cd">入力を消す</string>
+    <string name="post_ng_add">NGに追加</string>
+    <string name="post_ng_remove">NGを解除</string>
+    <string name="post_ng_tap_to_show">NG · 長押しで一時解除</string>
+    <string name="ai_chat_title">ジャービルと話す</string>
+    <string name="ai_chat_intro">アプリの質問とかここでしてな</string>
+    <string name="ai_chat_input">メッセージ</string>
+    <string name="ai_chat_send">送信</string>
+    <string name="ai_chat_stop">停止</string>
+    <string name="ai_chat_retry">再試行</string>
+    <string name="ai_chat_error">AI が応答できませんでした。</string>
+    <string name="ai_chat_too_long">メッセージを短くして送ってください。</string>
+    <string name="ai_chat_download_failed">AI モデルをダウンロードできませんでした。</string>
+    <string name="ai_chat_unavailable">この端末では AI チャットが使えません。</string>
+    <string name="ai_chat_download_notice">この機能を使用するにはローカルAIをダウンロードしてください。AIモデルはAICore（システムアプリ）が管理します。質問は端末内で処理されクラウドへ送信されません。</string>
+    <string name="ai_chat_download_background_notice">AIモデルの準備が完了したら、ジャービルに質問できます</string>
+    <string name="ai_chat_open_sites">「掲示板管理」を開く</string>
+    <string name="ai_chat_open_feedback">設定の「フィードバックを送信」を開く</string>
+    <string name="ai_chat_reset_cd">会話をリセット</string>
+    <string name="ai_chat_starter_abilities">ジャービルができること</string>
+    <string name="ai_chat_starter_limits">なんでAIの答えがポンコツなん？</string>
+    <string name="ai_chat_starter_bug">バグがあるんだけど</string>
+    <string name="ai_chat_search_pick">開きたい候補を選んでな。</string>
+    <string name="ai_chat_no_boards">登録済みの板には見つからへんかった。別の板名で探してみてな。</string>
+    <string name="ai_chat_no_threads">取得済みのスレには見つからへんかった。板名も教えてくれたら最新の一覧を探せるで。</string>
+    <string name="ai_chat_popular_results">今の勢い順やで。タップしたらスレを開けるで。</string>
+    <string name="ai_chat_multiple_boards">候補の板がいくつかあるで。選んだ板のスレ一覧を開けるで。</string>
+    <string name="ai_chat_board_no_threads">板の最新一覧には条件に合うスレが見つからへんかった。</string>
+    <string name="ai_chat_fetch_failed">スレ一覧を取得できへんかった。通信を確認してもう一度試してみてな。</string>
+    <string name="ai_chat_cached_results">最新の一覧を取得できへんかったから、保存済みの候補を出すで。</string>
+</resources>

@@ -1,0 +1,11 @@
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+.kotlin/
+captures/
+# OpenClaw runtime / private files
+.openclaw-rules/
+.openclaw-cli-images/
+media/

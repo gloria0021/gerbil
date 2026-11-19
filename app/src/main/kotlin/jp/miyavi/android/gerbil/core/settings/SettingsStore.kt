@@ -18,7 +18,8 @@ import kotlinx.coroutines.sync.withLock
 import java.io.IOException
 
 enum class ThemeMode { SYSTEM, LIGHT, DARK }
-enum class ColorTheme { DYNAMIC, CANYON, FOG, OLIVE, OBSIDIAN, CUSTOM }
+/** テーマ。並びは選ぶ画面の並び（Suna が先頭で初期値）。保存は名前なので、並べ替えても前の設定は読める。 */
+enum class ColorTheme { SUNA, CANYON, FOG, OLIVE, OBSIDIAN, DYNAMIC, CUSTOM }
 enum class AppFont { SYSTEM, LINE_SEED_JP }
 
 /** レス表示の見た目。モダン = 本文を薄い角丸の面に載せる、シンプル = 面なし。 */
@@ -33,7 +34,7 @@ enum class HazeMode { BLUR, GLASS }
 
 data class Settings(
     val themeMode: ThemeMode = ThemeMode.SYSTEM,
-    val colorTheme: ColorTheme = ColorTheme.DYNAMIC,
+    val colorTheme: ColorTheme = ColorTheme.SUNA,
     val customColorArgb: Int? = null,
     val font: AppFont = DEFAULT_FONT,
     val boardFontSizeSp: Int = DEFAULT_FONT_SIZE,
@@ -48,6 +49,8 @@ data class Settings(
     val autoMute: Boolean = false,
     /** AI ミュートの条件（利用者が書いたもの）。null なら初期値。 */
     val muteConditions: String? = null,
+    /** 要約の分割要約を新しい順に並べるか（false = 古い順。並べ替えのボタンで変えて覚える）。 */
+    val summaryNewestFirst: Boolean = false,
     val glassOpacityLevel: Int = DEFAULT_GLASS_OPACITY,
     val glassRefractionLevel: Int = DEFAULT_GLASS_REFRACTION,
     val hazeMode: HazeMode = DEFAULT_HAZE_MODE,
@@ -101,7 +104,7 @@ class SettingsStore private constructor(
     val settings: Flow<Settings> = store.data.map { p ->
         Settings(
             themeMode = legacyThemeMode(p[THEME]),
-            colorTheme = p[COLOR_THEME].toEnum(if (p[DYNAMIC] == false) ColorTheme.FOG else ColorTheme.DYNAMIC),
+            colorTheme = p[COLOR_THEME].toEnum(if (p[DYNAMIC] == false) ColorTheme.FOG else ColorTheme.SUNA),
             customColorArgb = p[CUSTOM_COLOR],
             font = p[APP_FONT].toEnum(Settings.DEFAULT_FONT),
             boardFontSizeSp = (p[BOARD_FONT] ?: Settings.DEFAULT_FONT_SIZE)
@@ -114,6 +117,7 @@ class SettingsStore private constructor(
             aiMute = p[AI_MUTE] ?: false,
             autoMute = p[AUTO_MUTE] ?: false,
             muteConditions = p[MUTE_CONDITIONS],
+            summaryNewestFirst = p[SUMMARY_NEWEST_FIRST] ?: false,
             glassOpacityLevel = (p[GLASS_OPACITY] ?: Settings.DEFAULT_GLASS_OPACITY)
                 .coerceIn(Settings.MIN_GLASS_LEVEL, Settings.MAX_GLASS_LEVEL),
             glassRefractionLevel = (p[GLASS_REFRACTION] ?: Settings.DEFAULT_GLASS_REFRACTION)
@@ -147,6 +151,7 @@ class SettingsStore private constructor(
     suspend fun setAutoSummary(v: Boolean) = store.edit { it[AUTO_SUMMARY] = v }
     suspend fun setAiMute(v: Boolean) = store.edit { it[AI_MUTE] = v }
     suspend fun setAutoMute(v: Boolean) = store.edit { it[AUTO_MUTE] = v }
+    suspend fun setSummaryNewestFirst(v: Boolean) = store.edit { it[SUMMARY_NEWEST_FIRST] = v }
     /** null か空なら初期値に戻す。 */
     suspend fun setMuteConditions(v: String?) = store.edit { if (v.isNullOrBlank()) it.remove(MUTE_CONDITIONS) else it[MUTE_CONDITIONS] = v }
     suspend fun setGlassOpacityLevel(v: Int) =
@@ -204,6 +209,7 @@ class SettingsStore private constructor(
         val AI_MUTE = booleanPreferencesKey("ai_mute")
         val AUTO_MUTE = booleanPreferencesKey("auto_mute")
         val MUTE_CONDITIONS = stringPreferencesKey("mute_conditions")
+        val SUMMARY_NEWEST_FIRST = booleanPreferencesKey("summary_newest_first")
         val LAST_BOARD = stringPreferencesKey("last_board")
         val LAST_TAB = intPreferencesKey("last_tab")
         val MENU_FETCHED = longPreferencesKey("menu_fetched_at")

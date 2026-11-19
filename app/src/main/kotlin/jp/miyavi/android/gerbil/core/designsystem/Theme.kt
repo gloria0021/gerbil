@@ -71,11 +71,13 @@ private val DarkScheme = darkColorScheme(
 )
 
 // Pixel 11 Pro 本体の色を参考にした種色。配色全体は Material の色生成に任せる。
+/** Suna（砂）。初期のテーマ。 */
+private val SunaSeed = Color(0xFF605050)
 private val CanyonSeed = Color(0xFFF07160)
 private val FogSeed = Color(0xFFB3E0F5)
 private val OliveSeed = Color(0xFF717C5C)
 private val ObsidianSeed = Color(0xFF162138)
-val DefaultCustomSeed = Color(0xFF6750A4)
+val DefaultCustomSeed = Color(0xFFFFFFFF)
 
 private val LineSeedFamily = FontFamily(
     Font(R.font.line_seed_jp_regular, FontWeight.Normal),
@@ -128,6 +130,7 @@ fun BoardsTheme(
             if (dark) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         colorTheme != ColorTheme.DYNAMIC -> {
             val seed = when (colorTheme) {
+                ColorTheme.SUNA -> SunaSeed
                 ColorTheme.CANYON -> CanyonSeed
                 ColorTheme.FOG -> FogSeed
                 ColorTheme.OLIVE -> OliveSeed
@@ -136,7 +139,7 @@ fun BoardsTheme(
                 ColorTheme.DYNAMIC -> DefaultCustomSeed
             }
             val base = rememberDynamicColorScheme(seedColor = seed, isDark = dark, style = paletteStyleFor(colorTheme))
-            if (colorTheme == ColorTheme.CUSTOM) {
+            if (usesSeedAsIs(colorTheme)) {
                 val contrasted = rememberDynamicColorScheme(
                     seedColor = seed, isDark = dark, style = paletteStyleFor(colorTheme), contrastLevel = CUSTOM_SECONDARY_CONTRAST,
                 )
@@ -175,7 +178,10 @@ fun BoardsTheme(
  * primaryContainer に使うので、種色の明るさが背景やチップに反映され、無彩色は無彩色のままになる。
  */
 internal fun paletteStyleFor(colorTheme: ColorTheme): PaletteStyle =
-    if (colorTheme == ColorTheme.CUSTOM) PaletteStyle.Fidelity else PaletteStyle.TonalSpot
+    if (usesSeedAsIs(colorTheme)) PaletteStyle.Fidelity else PaletteStyle.TonalSpot
+
+/** 種色をできるだけそのまま使うテーマ（カスタム色と Suna）。Fidelity で作り、補助の色だけコントラストを上げる。 */
+internal fun usesSeedAsIs(colorTheme: ColorTheme) = colorTheme == ColorTheme.CUSTOM || colorTheme == ColorTheme.SUNA
 
 /**
  * Fidelity は淡い種色だと補助の色（secondary 系）まで淡くなり、スター付きの板のボタンやチップが背景と

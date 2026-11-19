@@ -85,6 +85,7 @@ class AppViewModel(private val container: AppContainer) : ViewModel() {
     fun setAiMute(v: Boolean) = viewModelScope.launch { container.settings.setAiMute(v) }
     fun setAutoMute(v: Boolean) = viewModelScope.launch { container.settings.setAutoMute(v) }
     fun setMuteConditions(v: String?) = viewModelScope.launch { container.settings.setMuteConditions(v) }
+    fun setSummaryNewestFirst(v: Boolean) = viewModelScope.launch { container.settings.setSummaryNewestFirst(v) }
     fun setGlassOpacityLevel(v: Int) = viewModelScope.launch { container.settings.setGlassOpacityLevel(v) }
     fun setGlassRefractionLevel(v: Int) = viewModelScope.launch { container.settings.setGlassRefractionLevel(v) }
     fun setHazeMode(v: HazeMode) = viewModelScope.launch { container.settings.setHazeMode(v) }

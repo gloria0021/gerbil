@@ -125,6 +125,8 @@ fun AppNavigation(container: AppContainer, appViewModel: AppViewModel, settings:
                     aiMute = settings.aiMute && aiSupported,
                     autoMute = settings.aiMute && settings.autoMute && aiSupported,
                     muteConditions = settings.muteConditions ?: DEFAULT_MUTE_CONDITIONS,
+                    summaryNewestFirst = settings.summaryNewestFirst,
+                    onSummaryNewestFirst = appViewModel::setSummaryNewestFirst,
                     fontSize = settings.threadFontSizeSp,
                     onFontSize = appViewModel::setThreadFontSize,
                     onBack = { gate.run { backStack.pop() } },

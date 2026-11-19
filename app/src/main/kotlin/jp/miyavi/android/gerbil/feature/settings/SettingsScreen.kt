@@ -486,6 +486,7 @@ internal fun parseHexColor(value: String): Int? =
 private fun colorHex(value: Int) = "#%06X".format(value and 0xFFFFFF)
 
 private fun colorThemeLabel(v: ColorTheme) = when (v) {
+    ColorTheme.SUNA -> R.string.theme_suna
     ColorTheme.DYNAMIC -> R.string.theme_dynamic
     ColorTheme.CANYON -> R.string.theme_canyon
     ColorTheme.FOG -> R.string.theme_fog

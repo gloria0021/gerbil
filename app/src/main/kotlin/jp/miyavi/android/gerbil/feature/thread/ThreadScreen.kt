@@ -113,6 +113,9 @@ fun ThreadScreen(
     aiMute: Boolean = false,
     autoMute: Boolean = false,
     muteConditions: String = DEFAULT_MUTE_CONDITIONS,
+    /** 要約の並び（新しい順か）。設定に覚えておく。 */
+    summaryNewestFirst: Boolean = false,
+    onSummaryNewestFirst: (Boolean) -> Unit = {},
     aiAvailable: Boolean = true,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -149,6 +152,8 @@ fun ThreadScreen(
     val snackbar = remember { SnackbarHostState() }
     MessageEffect(viewModel.messages, snackbar)
     ThreadScreenContent(
+        summaryNewestFirst = summaryNewestFirst,
+        onSummaryNewestFirst = onSummaryNewestFirst,
         holdContent = !settled,
         state = state,
         snackbar = snackbar,
@@ -197,6 +202,8 @@ fun ThreadScreenContent(
     state: ThreadUiState,
     /** 画面が入ってくる途中は一覧を組み立てない（遷移の動きをもたつかせない）。入り終わったらフェードで出す。 */
     holdContent: Boolean = false,
+    summaryNewestFirst: Boolean = false,
+    onSummaryNewestFirst: (Boolean) -> Unit = {},
     snackbar: SnackbarHostState,
     onBack: () -> Unit,
     onOpenSettings: () -> Unit,
@@ -592,6 +599,8 @@ fun ThreadScreenContent(
             onStopQuestion = onStopQuestion,
             onAnchorClick = { n -> openAnchor(listOf(n..n)) },
             onResetQuestion = onResetQuestion,
+            newestFirst = summaryNewestFirst,
+            onNewestFirst = onSummaryNewestFirst,
             // 要約の範囲のアンカーは、シートを閉じてスレの範囲の先頭へ直接移る（アンカーのシートでは開かない）
             onJumpToPost = { range ->
                 onSummaryClose()

@@ -122,7 +122,7 @@ import jp.miyavi.android.gerbil.ui.BoardsBottomSheet
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ThreadSummarySheet(state: SummaryUiState, modelStatus: ModelStatus, modelName: String?, hazeState: HazeState, onDismiss: () -> Unit, onDownload: () -> Unit, onRetry: () -> Unit, onStop: () -> Unit = {}, onBegin: () -> Unit = {}, onUpdate: () -> Unit = {}, question: QuestionUiState = QuestionUiState(), onQuestionChange: (String) -> Unit = {}, onAsk: () -> Unit = {}, onStopQuestion: () -> Unit = {}, onAnchorClick: (Int) -> Unit = {}, onResetQuestion: () -> Unit = {}, onJumpToPost: (IntRange) -> Unit = {}) {
+fun ThreadSummarySheet(state: SummaryUiState, modelStatus: ModelStatus, modelName: String?, hazeState: HazeState, onDismiss: () -> Unit, onDownload: () -> Unit, onRetry: () -> Unit, onStop: () -> Unit = {}, onBegin: () -> Unit = {}, onUpdate: () -> Unit = {}, question: QuestionUiState = QuestionUiState(), onQuestionChange: (String) -> Unit = {}, onAsk: () -> Unit = {}, onStopQuestion: () -> Unit = {}, onAnchorClick: (Int) -> Unit = {}, onResetQuestion: () -> Unit = {}, onJumpToPost: (IntRange) -> Unit = {}, newestFirst: Boolean = false, onNewestFirst: (Boolean) -> Unit = {}) {
     // シート全体はスクロールさせず、要約を載せた白い面の中だけをスクロールさせる
     // 質問の入力中にキーボードで入力欄が隠れないよう、シートは最初から全部引き上げ、中身をキーボードの分だけ上へ逃がす
     BoardsBottomSheet(
@@ -131,17 +131,16 @@ fun ThreadSummarySheet(state: SummaryUiState, modelStatus: ModelStatus, modelNam
         sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
         contentModifier = Modifier.windowInsetsPadding(WindowInsets.ime.union(WindowInsets.navigationBars)),
     ) {
-        ThreadSummaryContent(state, modelStatus, modelName, onDismiss, onDownload, onRetry, onStop, onBegin, onUpdate, question, onQuestionChange, onAsk, onStopQuestion, onAnchorClick, onResetQuestion, onJumpToPost)
+        ThreadSummaryContent(state, modelStatus, modelName, onDismiss, onDownload, onRetry, onStop, onBegin, onUpdate, question, onQuestionChange, onAsk, onStopQuestion, onAnchorClick, onResetQuestion, onJumpToPost, newestFirst, onNewestFirst)
     }
 }
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-internal fun ThreadSummaryContent(state: SummaryUiState, modelStatus: ModelStatus, modelName: String?, onDismiss: () -> Unit, onDownload: () -> Unit, onRetry: () -> Unit, onStop: () -> Unit = {}, onBegin: () -> Unit = {}, onUpdate: () -> Unit = {}, question: QuestionUiState = QuestionUiState(), onQuestionChange: (String) -> Unit = {}, onAsk: () -> Unit = {}, onStopQuestion: () -> Unit = {}, onAnchorClick: (Int) -> Unit = {}, onResetQuestion: () -> Unit = {}, onJumpToPost: (IntRange) -> Unit = {}) {
+internal fun ThreadSummaryContent(state: SummaryUiState, modelStatus: ModelStatus, modelName: String?, onDismiss: () -> Unit, onDownload: () -> Unit, onRetry: () -> Unit, onStop: () -> Unit = {}, onBegin: () -> Unit = {}, onUpdate: () -> Unit = {}, question: QuestionUiState = QuestionUiState(), onQuestionChange: (String) -> Unit = {}, onAsk: () -> Unit = {}, onStopQuestion: () -> Unit = {}, onAnchorClick: (Int) -> Unit = {}, onResetQuestion: () -> Unit = {}, onJumpToPost: (IntRange) -> Unit = {}, newestFirst: Boolean = false, onNewestFirst: (Boolean) -> Unit = {}) {
     // 質問の画面か（要約の画面の「質問」ボタンで切り替える）
     var questionMode by rememberSaveable { mutableStateOf(false) }
-    // 分割要約の並び。基本は古い順（時系列のまま読める）。作っている途中とでき上がった後で共通にする
-    var newestFirst by rememberSaveable { mutableStateOf(false) }
+    // 分割要約の並び（基本は古い順）は設定に覚えておき、作っている途中とでき上がった後で共通にする
     // 上はドラッグハンドルの余白があるので詰める
     Column(Modifier.fillMaxWidth().padding(start = Spacing.l, end = Spacing.l, bottom = Spacing.l), verticalArrangement = Arrangement.spacedBy(Spacing.m)) {
         val isModelSetup = state.stage == SummaryStage.DOWNLOADABLE || state.stage == SummaryStage.DOWNLOADING
@@ -220,7 +219,7 @@ internal fun ThreadSummaryContent(state: SummaryUiState, modelStatus: ModelStatu
                     } else {
                         SummaryWaiting(state.progress, showSkeleton = false, trailing = {
                             SummaryTrailingButtons {
-                                SummaryOrderButton(newestFirst) { newestFirst = !newestFirst }
+                                SummaryOrderButton(newestFirst) { onNewestFirst(!newestFirst) }
                                 SummaryStopButton(onStop)
                             }
                         })
@@ -240,7 +239,7 @@ internal fun ThreadSummaryContent(state: SummaryUiState, modelStatus: ModelStatu
                             modifier = Modifier.weight(1f),
                         )
                         SummaryTrailingButtons {
-                            if (state.partials.isNotEmpty()) SummaryOrderButton(newestFirst) { newestFirst = !newestFirst }
+                            if (state.partials.isNotEmpty()) SummaryOrderButton(newestFirst) { onNewestFirst(!newestFirst) }
                             SummaryRegenerateButton(onRetry)
                         }
                     }

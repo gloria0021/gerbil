@@ -15,7 +15,7 @@
 ### 動作環境
 
 - Android12以上
-- AI機能は端末でGemini Nano（AICoreが使える場合だけ表示されます
+- AI機能は端末でGeminiNano（AICore）が使える場合だけ表示されます
 
 ### 対応形式
 
@@ -66,6 +66,9 @@ AI機能の利用は対応している端末のみ。
 ### GooglePlayストア公開
 しばらく個人で使ってみていけると判断したら登録予定
 
+
+## プライバシーポリシー
+[プライバシーポリシー](docs/privacy-policy.md)（日本語 / English）
 
 ## ライセンス
  [PolyForm Strict License 1.0.0](LICENSE) のカスタム版

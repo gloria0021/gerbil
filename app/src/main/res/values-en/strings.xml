@@ -170,6 +170,7 @@
     <string name="settings_mute_conditions">Edit mute conditions</string>
     <string name="settings_mute_conditions_hint">The on-device AI blurs posts that match. Write one per line. Rude posts with real content are kept.</string>
     <string name="settings_mute_conditions_reset">Reset to default</string>
+    <string name="settings_privacy">Privacy policy</string>
     <string name="settings_licenses">Open source licenses</string>
     <string name="settings_licenses_desc">Licenses of the libraries, icons and fonts used in this app</string>
     <string name="settings_feedback">Send feedback</string>

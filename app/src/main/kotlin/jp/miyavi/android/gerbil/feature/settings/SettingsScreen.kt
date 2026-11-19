@@ -332,6 +332,12 @@ fun SettingsScreen(
             }
             item {
                 ListItem(
+                    headlineContent = { Text(stringResource(R.string.settings_privacy)) },
+                    modifier = Modifier.clickable { openLink(PRIVACY_POLICY_URL) },
+                )
+            }
+            item {
+                ListItem(
                     headlineContent = { Text(stringResource(R.string.settings_version)) },
                     supportingContent = { Text(BuildConfig.VERSION_NAME) },
                 )
@@ -582,3 +588,6 @@ private fun LicensesDialog(onDismiss: () -> Unit) {
 
 /** 表示する順（一覧 → 各ライセンスの全文）。 */
 private val LICENSE_FILES = listOf("third-party.txt", "mit.txt", "hugeicons-MIT.txt", "line-seed-jp-OFL.txt", "apache-2.0.txt")
+
+/** プライバシーポリシー（公開のレポジトリの docs/privacy-policy.md）。Google Play の掲載にも同じ URL を使う。 */
+private const val PRIVACY_POLICY_URL = "https://github.com/gloria0021/gerbil/blob/main/docs/privacy-policy.md"

@@ -165,6 +165,7 @@
     <string name="settings_mute_conditions">ミュート条件を編集</string>
     <string name="settings_mute_conditions_hint">当てはまるレスを、端末の AI がぼかします。1行に1つ書きます。口が悪くても中身のあるレスは残します</string>
     <string name="settings_mute_conditions_reset">初期値に戻す</string>
+    <string name="settings_privacy">プライバシーポリシー</string>
     <string name="settings_licenses">オープンソースライセンス</string>
     <string name="settings_licenses_desc">このアプリが使っているライブラリ・アイコン・フォントのライセンス</string>
     <string name="settings_feedback">フィードバックを送信</string>

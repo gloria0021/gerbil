@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Debug 版のアイコン。Release 版（main の同名ファイル）と同じ絵に、オレンジ系の色を掛けて見分けられるようにする -->
-<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-    android:src="@drawable/gerbil_launcher_foreground"
-    android:filter="true"
-    android:tint="#FFB066"
-    android:tintMode="multiply" />

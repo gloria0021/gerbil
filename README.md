@@ -2,19 +2,16 @@
 最新のGooglePixelに最適化したMaterial3デザインの汎用DATビューワーです（Pixel11Proで開発）
 
 ### インストール
+#### Playストア
+<a href="https://play.google.com/store/apps/details?id=jp.miyavi.android.gerbil"><img src="docs/store/play-card.png" width="560" alt="Gerbil｜ローカルAIを使った専ブラ（Google Play）"></a>
 
-[最新版の APK をダウンロード](https://github.com/gloria0021/gerbil/releases/latest/download/gerbil-release.apk)
-
-
-### このアプリ大丈夫なん？
-広告、解析、トラッキングは入っていません。
-
-透明性のためにソースコードも公開しています。気になる人はAIエージェントに読ませてみてください。
+#### Github
+[最新リリースをダウンロード](https://github.com/gloria0021/gerbil/releases/latest/download/gerbil-release.apk)
 
 
 ### 動作環境
 
-- Android12以上
+- Android13以上
 - AI機能は端末でGeminiNano（AICore）が使える場合だけ表示されます
 
 ### 対応形式
@@ -63,17 +60,9 @@ AI機能の利用は対応している端末のみ。
 ### クラウドAI対応
 要約やAIミュートはGPT6.1Luna辺りの格安フロンティアモデルを使えば低コストで求めている精度の機能が得られます。QOL上がるのでこの機能は入れたい
 
-### GooglePlayストア公開
-しばらく個人で使ってみていけると判断したら登録予定
-
 
 ## プライバシーポリシー
 [プライバシーポリシー](docs/privacy-policy.md)（日本語 / English）
 
 ## ライセンス
- [PolyForm Strict License 1.0.0](LICENSE) のカスタム版
-
-ソースコードは下記を目的に公開しています。
-
-- アプリの透明性のため
-- 個人利用の範疇で自由に試したり改変して使う
+アプリが使っているライブラリ・アイコン・フォントのライセンスは、アプリの「設定 → オープンソースライセンス」で確認できます。

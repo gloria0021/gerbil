@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Debug 版だと分かるように、ホーム画面の名前を変える -->
-    <string name="app_name" translatable="false">Gerbil Dev</string>
-</resources>
